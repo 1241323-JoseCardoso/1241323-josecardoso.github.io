@@ -1,0 +1,525 @@
+
+/* =========================================
+   JOSÉ CARDOSO — PORTFOLIO
+   MIDGAR INDUSTRIAL V2
+========================================= */
+
+
+/* 1. PALETA DE CORES */
+
+:root {
+    --bg-color: #111315;
+    --surface-color: #292D30;
+    --accent-color: #8CBA93;
+    --text-color: #E1DED6;
+    --muted-color: #A8AAA6;
+    --border-color: #3B4144;
+}
+
+
+/* 2. ESTILOS GERAIS */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    isolation: isolate;
+
+    min-height: 100vh;
+    margin: 0;
+
+    background-color: var(--bg-color);
+    color: var(--text-color);
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* 3. FUNDO GEOMÉTRICO GLOBAL */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    pointer-events: none;
+}
+
+/* Primeira camada */
+
+body::before {
+    background: linear-gradient(
+        135deg,
+        #203329,
+        #18251F
+    );
+
+    clip-path: polygon(
+        0 0,
+        65% 0,
+        100% 35%,
+        45% 75%,
+        0 50%
+    );
+
+    opacity: 0.35;
+}
+
+/* Segunda camada */
+
+body::after {
+    background: linear-gradient(
+        45deg,
+        #304638,
+        #1C2923
+    );
+
+    clip-path: polygon(
+        0 85%,
+        45% 30%,
+        100% 65%,
+        100% 100%,
+        0 100%
+    );
+
+    opacity: 0.25;
+}
+
+
+/* 4. INTRODUCTION — SEM CARTÃO EXTERIOR */
+
+.hero {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    padding: 70px 20px 60px;
+
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 0;
+
+    text-align: left;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 35px;
+    align-items: center;
+}
+
+.hero-content {
+    min-width: 0;
+}
+
+.section-number {
+    color: var(--accent-color);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin-bottom: 22px;
+}
+
+.hero-content h1 {
+    color: var(--text-color);
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    margin: 0 0 18px;
+}
+
+.hero-subtitle {
+    color: var(--muted-color);
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.hero-content > p:not(.section-number) {
+    line-height: 1.6;
+}
+
+.hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+
+/* 5. BOTÕES DA INTRODUCTION */
+
+.hero-button,
+.hero-button-outline {
+    display: inline-block;
+    padding: 10px 20px;
+
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.hero-button {
+    background-color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    color: var(--bg-color);
+}
+
+.hero-button:hover {
+    background-color: #B2D2B6;
+    color: var(--bg-color);
+    text-decoration: none;
+}
+
+.hero-button-outline {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.hero-button-outline:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+
+/* 6. FOTOGRAFIA SKETCH */
+
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: transparent;
+    border: none;
+    min-height: 0;
+}
+
+.hero-photo-wrapper {
+    position: relative;
+
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 3 / 4;
+
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.hero-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    filter:
+        grayscale(1)
+        invert(1)
+        contrast(1.15)
+        brightness(1.1);
+
+    mix-blend-mode: screen;
+    opacity: 0.85;
+}
+
+
+/* 7. CONTEÚDO PRINCIPAL */
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+
+    background: transparent;
+}
+
+main > section {
+    margin-bottom: 65px;
+    background: transparent;
+}
+
+
+/* 8. TÍTULOS E TEXTO */
+
+h2 {
+    color: var(--text-color);
+    font-size: 28px;
+    font-weight: 600;
+
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+h3 {
+    color: var(--text-color);
+    font-size: 21px;
+    font-weight: 600;
+
+    margin-top: 0;
+    margin-bottom: 14px;
+}
+
+p {
+    color: var(--text-color);
+    margin-bottom: 16px;
+}
+
+ul {
+    padding-left: 24px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+
+/* 9. TECNOLOGIAS — CSS GRID */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+
+    padding: 24px;
+}
+
+.skill-card h3 {
+    color: var(--text-color);
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.skill-card p {
+    color: var(--muted-color);
+    margin-bottom: 0;
+}
+
+
+/* 10. PROJETOS */
+
+.project-card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+
+    padding: 28px;
+    margin-bottom: 22px;
+
+    transition: border-color 0.2s ease;
+}
+
+.project-card:hover {
+    border-color: var(--accent-color);
+}
+
+.project-image-container {
+    flex: 0 0 35%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-image-container img {
+    display: block;
+
+    max-width: 100%;
+    max-height: 260px;
+    width: auto;
+    height: auto;
+
+    border-radius: 4px;
+}
+
+.project-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.project-content h3 {
+    margin-bottom: 15px;
+}
+
+.project-content p {
+    color: var(--muted-color);
+    margin-bottom: 18px;
+}
+
+
+/* 11. LINKS GERAIS */
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #B2D2B6;
+    text-decoration: underline;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 4px;
+}
+
+
+/* 12. RODAPÉ */
+
+footer {
+    background: transparent;
+    border-top: 1px solid var(--border-color);
+
+    text-align: center;
+    padding: 40px 20px;
+}
+
+footer h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+footer a {
+    display: inline-block;
+    margin: 0 12px;
+}
+
+
+/* 13. RESPONSIVIDADE — TABLET E TELEMÓVEL */
+
+@media (max-width: 768px) {
+
+    .hero {
+        margin: 0 16px;
+        padding: 45px 10px;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-photo-wrapper {
+        max-width: 240px;
+    }
+
+    main {
+        padding: 30px 16px;
+    }
+
+    main > section {
+        margin-bottom: 45px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px;
+    }
+
+    .project-image-container {
+        flex-basis: auto;
+        width: 100%;
+    }
+
+    .project-image-container img {
+        max-height: 240px;
+    }
+
+}
+
+
+/* 14. ECRÃS PEQUENOS */
+
+@media (max-width: 420px) {
+
+    .hero {
+        padding: 35px 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 30px;
+    }
+
+    .hero-subtitle {
+        font-size: 15px;
+    }
+
+    .hero-links {
+        gap: 10px;
+    }
+
+    .skill-card {
+        padding: 18px;
+    }
+
+}
+
+
+/* 15. ACESSIBILIDADE */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    a,
+    .hero-button,
+    .hero-button-outline,
+    .project-card {
+        transition: none;
+    }
+
+}
